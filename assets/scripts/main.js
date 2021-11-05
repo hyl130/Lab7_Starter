@@ -57,6 +57,21 @@ function initializeServiceWorker() {
    *  TODO - Part 2 Step 1
    *  Initialize the service worker set up in sw.js
    */
+  /*
+   * source: https://developers.google.com/web/fundamentals/primers/service-workers
+   */
+   if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+  
 }
 
 /**
@@ -163,6 +178,7 @@ function bindShowMore() {
  */
 function bindRecipeCard(recipeCard, pageName) {
   recipeCard.addEventListener('click', e => {
+    console.log("HERE " + e);
     if (e.path[0].nodeName == 'A') return;
     router.navigate(pageName);
   });
@@ -208,11 +224,9 @@ function bindPopstate() {
   window.addEventListener('popstate', event => {
     console.log("addebet");
     if(event.state != null){
-      console.log("hello " + event.state );
       router.navigate(event.state, true);
     }
     else{
-      console.log("hello2 " + event.state[0] );
       router.navigate('home', true);
     }
   });

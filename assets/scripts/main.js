@@ -1,6 +1,6 @@
 // main.js
 
-import { Router } from './router.js';
+import { Router } from './Router.js';
 
 const recipes = [
   'https://introweb.tech/assets/json/ghostCookies.json',
@@ -204,12 +204,15 @@ function bindPopstate() {
    * so your navigate() function does not add your going back action to the history,
    * creating an infinite loop
    */
-
+  
   window.addEventListener('popstate', event => {
+    console.log("addebet");
     if(event.state != null){
+      console.log("hello " + event.state );
       router.navigate(event.state, true);
     }
     else{
+      console.log("hello2 " + event.state[0] );
       router.navigate('home', true);
     }
   });

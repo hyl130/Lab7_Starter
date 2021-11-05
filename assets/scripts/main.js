@@ -178,7 +178,6 @@ function bindShowMore() {
  */
 function bindRecipeCard(recipeCard, pageName) {
   recipeCard.addEventListener('click', e => {
-    console.log("HERE " + e);
     if (e.path[0].nodeName == 'A') return;
     router.navigate(pageName);
   });
@@ -222,9 +221,8 @@ function bindPopstate() {
    */
   
   window.addEventListener('popstate', event => {
-    console.log("addebet");
     if(event.state != null){
-      router.navigate(event.state, true);
+      router.navigate( event.state, true);
     }
     else{
       router.navigate('home', true);

@@ -181,7 +181,7 @@ function bindEscKey() {
    */
    document.addEventListener('keydown', function(event) {
      if(event.key == "Escape"){
-      router.navigate('home', false);
+      router.navigate('home');
      }
 });}
 
@@ -206,13 +206,9 @@ function bindPopstate() {
    */
   
   window.addEventListener('popstate', event => {
-    console.log("addebet");
     if(event.state != null){
-      console.log("hello " + event.state );
       router.navigate(event.state, true);
-    }
-    else{
-      console.log("hello2 " + event.state[0] );
+    } else {
       router.navigate('home', true);
     }
   });

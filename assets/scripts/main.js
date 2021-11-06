@@ -23,7 +23,7 @@ const router = new Router(function () {
    * element.classList.remove())
    * 
    * This will only be two single lines
-   * If you did this right, you should see the recipe cards just like last lab
+   * If you did this right, you should see just 1 recipe card rendered to the screen
    */
   document.querySelector(".section--recipe-cards").classList.add("shown");
   document.querySelector(".section--recipe-expand").classList.remove("shown");
@@ -138,6 +138,8 @@ function createRecipeCards() {
    * understand what it is doing. Then, turn this into a for loop to iterate over 
    * all the recipes. (bonus - add the class 'hidden' to every recipe card with 
    * an index greater  than 2 in your for loop to make show more button functional)
+   * After this step you should see multiple cards rendered like the end of the last
+   * lab
    */
 }
 
@@ -229,4 +231,5 @@ function bindPopstate() {
       router.navigate('home', true);
     }
   });
+
 }

@@ -224,6 +224,7 @@ function bindPopstate() {
     if(event.state != null){
       router.navigate( event.state, true);
     }
+    
     else{
       router.navigate('home', true);
     }

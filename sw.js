@@ -13,7 +13,7 @@ self.addEventListener('install', function (event) {
    * Create a function as outlined above
    */
 
-   var urlsToCache = [
+   let urlsToCache = [
     'https://introweb.tech/assets/json/ghostCookies.json',
     'https://introweb.tech/assets/json/birthdayCake.json',
     'https://introweb.tech/assets/json/chocolateChip.json',
@@ -75,7 +75,7 @@ self.addEventListener('fetch', function (event) {
               // and because we want the browser to consume the response
               // as well as the cache consuming the response, we need
               // to clone it so we have two streams.
-              var responseToCache = response.clone();
+              let responseToCache = response.clone();
   
               caches.open(CACHE_NAME)
                 .then(function(cache) {
@@ -87,10 +87,6 @@ self.addEventListener('fetch', function (event) {
           );
         })
       );
-  
-
-
-
 
   
 });
